@@ -1,0 +1,68 @@
+{
+  "shipments": [
+    {
+      "id": "7777777770",
+      "service": "express",
+      "origin": {
+        "address": {
+          "addressLocality": "SUZHOU & SURROUNDING AREA - CHINA MAINLAND"
+        },
+        "servicePoint": {
+          "url": "http://www.cn.dhl.com/en/country_profile.html",
+          "label": "Origin Service Area"
+        }
+      },
+      "destination": {
+        "address": {
+          "addressLocality": "HSIN CHU - TAIWAN"
+        },
+        "servicePoint": {
+          "url": "http://www.dhl.com.tw/en/country_profile.html",
+          "label": "Destination Service Area"
+        }
+      },
+      "status": {
+        "timestamp": "2022-01-20T15:43:00",
+        "location": {
+          "address": {
+            "addressLocality": "MILAN - MALPENSA - ITALY"
+          }
+        },
+        "statusCode": "transit",
+        "status": "transit",
+        "description": "Clearance processing complete at MILAN - MALPENSA - ITALY"
+      },
+      "details": {
+        "proofOfDelivery": {
+          "signatureUrl": "https://proview.dhl.com/proview/adhocnotify?id=mL2NKyZ3K3oDQtpXfuSukGKP3ihCYJR8nQDfikb0a7A%3D&appuid=hu1sMwjc2KTQakT1gGK9Dg%3D%3D&locale=en_G0&token=q3SDQ3FgDUDdomQM2jb1F7A0V4qA124LF2O22zX5298%3D",
+          "documentUrl": "https://proview.dhl.com/proview/adhocnotify?id=mL2NKyZ3K3oDQtpXfuSukGKP3ihCYJR8nQDfikb0a7A%3D&appuid=hu1sMwjc2KTQakT1gGK9Dg%3D%3D&locale=en_G0&token=q3SDQ3FgDUDdomQM2jb1F7A0V4qA124LF2O22zX5298%3D"
+        },
+        "proofOfDeliverySignedAvailable": false,
+        "totalNumberOfPieces": 1,
+        "pieceIds": [
+          "JD014600009396886053"
+        ]
+      },
+      "events": [
+        {
+          "timestamp": "2022-01-20T15:43:00",
+          "location": {
+            "address": {
+              "addressLocality": "MILAN - MALPENSA - ITALY"
+            }
+          },
+          "description": "Clearance processing complete at MILAN - MALPENSA - ITALY"
+        },
+        {
+          "timestamp": "2022-01-17T04:00:00",
+          "location": {
+            "address": {
+              "addressLocality": "SUZHOU & SURROUNDING AREA - CHINA MAINLAND"
+            }
+          },
+          "description": "Shipment picked up"
+        }
+      ]
+    }
+  ]
+}
