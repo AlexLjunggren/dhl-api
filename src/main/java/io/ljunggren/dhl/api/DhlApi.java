@@ -20,7 +20,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 import io.ljunggren.dhl.api.response.Error;
 import io.ljunggren.dhl.api.response.TrackingResponse;
-import io.ljunggren.jsonUtils.JsonUtils;
+import io.ljunggren.json.utils.JsonUtils;
 
 public class DhlApi {
 
@@ -32,12 +32,16 @@ public class DhlApi {
         this.apiKey = apiKey;
     }
     
-    public TrackingResponse track(String... trackingNumbers) throws IOException {
-        return track(getHttpClient(), trackingNumbers);
+    public TrackingResponse track(String trackingNumber) throws IOException {
+        return track(getHttpClient(), new String[] {trackingNumber}, true);
+    }
+    
+    public TrackingResponse track(String[] trackingNumbers) throws IOException {
+        return track(getHttpClient(), trackingNumbers, true);
     }
     
     // package public for unit testing
-    public TrackingResponse track(CloseableHttpClient httpClient, String... trackingNumbers) throws IOException {
+    public TrackingResponse track(CloseableHttpClient httpClient, String[] trackingNumbers, boolean retry) throws IOException {
         Header[] headers = new Header[] {
                 new BasicHeader("content-type", "application/json"),
                 new BasicHeader("DHL-API-Key", apiKey)
@@ -53,6 +57,10 @@ public class DhlApi {
                 return parse(json, TrackingResponse.class);
             }
             if (429 == responseCode) {
+                if (retry) {
+                    Thread.sleep(5000);
+                    return track(httpClient, trackingNumbers, false);
+                }
                 createErrorResponse(responseCode, "Rate limit: Too many requests.");
             }
             return createErrorResponse(responseCode, json);
